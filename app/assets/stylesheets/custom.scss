@@ -1,1 +1,86 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+body {
+  padding-top: 60px;
+}
+
+.bg-dark {
+  background-color: #2b2000 !important;
+}
+
+a {
+ color: #2b2000;
+}
+
+a:hover {
+  color: #523d00
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 61, 0, 0.25);
+  border-color: #eeeeee;
+}
+
+.text-dark {
+  color:#523d00 !important;
+}
+
+.text-dark:hover {
+  color: #2b2000 !important;
+}
+
+.username-style {
+  color: black;
+  font-size: 1.3em;
+  line-height: 0;
+}
+
+a.username-style:hover {
+  text-decoration: underline red;
+  color:black;
+}
+
+a.btn-xs, input.btn-xs {
+  padding: 0.25rem 0.3rem;
+  font-size: 0.7rem;
+  line-height: 1.0;
+  border-radius: 0.2rem;
+}
+
+.sticky-top {
+  top: 62px
+}
+
+.alert-notice {
+  color: #10820e;
+  background-color: #99b898;
+  border-color: #053004;
+}
+
+.page-link {
+  color: #565c62;
+}
+
+.page-link:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.page-item.active .page-link {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #2b2000;
+  border-color: #2b2000;
+}
+
+.text-small {
+  font-size: 0.8em;
+}
+
+.article-text-area {
+  height: 400px !important;
+}
