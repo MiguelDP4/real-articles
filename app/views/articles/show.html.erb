@@ -2,8 +2,11 @@
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-      <h2>Article Editor</h2>
-      <%= render 'form' %>
+      <h2><%= @article.title %></h2>
+      <div><%= @article.user.name %></div>
+      <div><%= @article.text %></div>
+      <img src="<%= @article.image %>" class="img-fluid">
+      <div>Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
     </div>
   </div>
 </div>

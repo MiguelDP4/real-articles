@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :require_login
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy, :edit]
 
   def create
     @article = current_user.articles.build(article_params)
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :text, :image)
   end
   def logged_in_user
     unless user_signed_in?
