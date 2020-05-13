@@ -1,0 +1,7 @@
+<%= form_with(model: @article, local: true) do |f| %>
+  <div class="form-group w-100 h-100">
+    <%= f.text_area :content, placeholder: "Compose your article here...", class: "form-control" %>
+  </div>
+
+  <%= f.submit "Publish", class: "btn btn-dark" %>
+<% end %>
