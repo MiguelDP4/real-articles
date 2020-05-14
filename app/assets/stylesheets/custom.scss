@@ -1,15 +1,19 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+$color-yellow-light: #ad9800;
+$color-yellow: #685b00;
+$color-yellow-dark: #352f00;
+
 body {
   padding-top: 60px;
 }
 
 .bg-dark {
-  background-color: #2b2000 !important;
+  background-color: $color-yellow-dark !important;
 }
 
 a {
- color: #2b2000;
+ color: $color-yellow-dark;
 }
 
 a:hover {
@@ -22,11 +26,11 @@ a:hover {
 }
 
 .text-dark {
-  color:#523d00 !important;
+  color: $color-yellow-dark !important;
 }
 
 .text-dark:hover {
-  color: #2b2000 !important;
+  color: $color-yellow !important;
 }
 
 .username-style {
@@ -36,7 +40,7 @@ a:hover {
 }
 
 a.username-style:hover {
-  text-decoration: underline red;
+  text-decoration: underline $color-yellow;
   color:black;
 }
 
@@ -51,10 +55,14 @@ a.btn-xs, input.btn-xs {
   top: 62px
 }
 
+.alert {
+  margin: 0 5px;
+}
+
 .alert-notice {
-  color: #10820e;
-  background-color: #99b898;
-  border-color: #053004;
+  color: $color-yellow-light;
+  background-color: $color-yellow;
+  border-color: $color-yellow-dark;
 }
 
 .page-link {
@@ -73,8 +81,23 @@ a.btn-xs, input.btn-xs {
 
 .btn-dark {
   color: #fff;
-  background-color: #2b2000;
-  border-color: #2b2000;
+  background-color: $color-yellow-dark;
+  border-color: $color-yellow-dark;
+}
+
+.btn-dark:hover {
+  background-color: $color-yellow;
+  border-color: $color-yellow;
+}
+
+.btn-secondary {
+  background-color: $color-yellow;
+  border-color: $color-yellow;
+}
+
+.btn-secondary:hover {
+  background-color: $color-yellow-dark;
+  border-color: $color-yellow-dark;
 }
 
 .text-small {
