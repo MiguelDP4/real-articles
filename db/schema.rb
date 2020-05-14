@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2020_05_14_154759) do
   end
 
   create_table "category_articles", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "article_id", null: false
+    t.bigint "category_id"
+    t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_category_articles_on_article_id"
@@ -57,6 +57,4 @@ ActiveRecord::Schema.define(version: 2020_05_14_154759) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "category_articles", "articles"
-  add_foreign_key "category_articles", "categories"
 end
