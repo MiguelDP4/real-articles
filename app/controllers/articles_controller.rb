@@ -8,12 +8,16 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
+    # @categoryarticle = @article.category_articles.build(category_params)
     if @article.save
+      category_array = category_params[:category].split(",").uniq.map { |category| category.to_i }.compact
+      category_array << 1 if category_array.count == 0
+      category_array.each{ |category| @article.add_category(category) }
       flash[:success] = "Your article was published."
       redirect_to @article
     else
-      flash[:danger] = "Something went wrong. Try again later. #{p article_params}"
-      redirect_to root_path
+      flash[:danger] = "Something went wrong. Try again later."
+      redirect_to request.referrer
     end
   end
 
@@ -36,6 +40,10 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def category_params
+    params.permit(:category)
+  end
 
   def article_params
     params.permit(:title, :text, :image)

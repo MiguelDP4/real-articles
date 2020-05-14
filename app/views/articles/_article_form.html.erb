@@ -1,9 +1,0 @@
-<%= form_with( model: @article, local: true, class: "article-form" ) do |f| %>
-  <div class="form-group">
-    <%= f.text_field :title, placeholder: "Type your article title here...", class: "form-control mb-4" %>
-    <%= f.text_area :text, placeholder: "Compose your article here...", class: "form-control mb-4 article-text-area"%>
-    <%= f.text_field :image, placeholder: "Paste an image url here", class: "form-control", id: "image-src" %>
-  </div>
-
-  <%= f.submit "Publish", class: "btn btn-dark mb-4" %>
-<% end %>

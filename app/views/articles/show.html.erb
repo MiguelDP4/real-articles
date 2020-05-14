@@ -1,11 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <div class="col-sm-12 col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
       <h2><%= @article.title %></h2>
-      <div><%= @article.user.name %></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-1 col-lg-2">
+    <% if @article.image != "" %>
+      <%= image_tag(@article.image, class: "img-fluid") %>
+    <% end %>
+    </div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <div class="text-small">Author: <span class="text-light-yellow"><%= @article.user.name %></span></div>
       <div><%= @article.text %></div>
-      <img src="<%= @article.image %>" class="img-fluid">
       <div>Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
     </div>
   </div>
