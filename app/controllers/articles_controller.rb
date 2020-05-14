@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
     # @categoryarticle = @article.category_articles.build(category_params)
     if @article.save
       category_array = category_params[:category].split(",").uniq.map { |category| category.to_i }.compact
+      category_array << 1 if category_array.count == 0
       category_array.each{ |category| @article.add_category(category) }
       flash[:success] = "Your article was published."
       redirect_to @article
