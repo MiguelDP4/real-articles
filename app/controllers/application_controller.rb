@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   def require_login #Remember, you need to add this to the "create article" page
     unless user_signed_in?
+      flash[:danger] = "You need to log in to do that"
       redirect_to new_user_session_path
     end
   end
