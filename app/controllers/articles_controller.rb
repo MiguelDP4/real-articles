@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  before_action :require_login
   before_action :logged_in_user, only: [:create, :destroy, :edit]
 
   def new

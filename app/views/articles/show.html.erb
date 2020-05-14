@@ -10,13 +10,39 @@
   <div class="row">
     <div class="col-sm-12 col-md-1 col-lg-2">
     <% if @article.image != "" %>
-      <%= image_tag(@article.image, class: "img-fluid") %>
+      <%= image_tag(@article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()") %>
     <% end %>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-8">
       <div class="text-small">Author: <span class="text-light-yellow"><%= @article.user.name %></span></div>
       <div><%= @article.text %></div>
-      <div>Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
+      <div class="text-small mb-3">Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
+      <div class="d-flex flex-row align-items-center">
+        <span class="text-small mb-1">Liked the article? Vote up!</span>
+      </div>
+      <span class="text-small" >Votes: <%= @article.votes.count%></span>
+        <% if user_signed_in? %>
+          <% if !current_user.voted?(@article) %>
+            <%= link_to '', @article, method: :post, class: "btn btn-outline-secondary fa fa-caret-square-o-up ml-2" %>
+          <% else %>
+            <%= link_to '', @article, method: :patch, class: "btn btn-secondary fa fa-caret-square-o-down ml-2" %>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
+
+<script>
+  var image = document.getElementById("articleImage");
+  var state = "small";
+  function enlarge(){
+    if(state == "small"){
+      image.style = "position: fixed; top: 10%; left: 10%; width: 80%; z-index: 1000";
+      state = "big"
+    }	
+    else{
+      image.style = "width: 100%; position: relative;";
+      state = "small"
+    }
+  }
+</script>
