@@ -65,6 +65,12 @@ a.btn-xs, input.btn-xs {
   border-color: $color-yellow-dark;
 }
 
+.alert-success {
+  color: $color-yellow;
+  background-color: $color-yellow-light;
+  border-color: $color-yellow;
+}
+
 .page-link {
   color: #565c62;
 }
