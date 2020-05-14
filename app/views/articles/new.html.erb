@@ -12,7 +12,6 @@
           <div class="form-group">
             <%= f.text_field :title, placeholder: "Type your article title here...", class: "form-control mb-4" %>
             <%= f.text_area :text, placeholder: "Compose your article here...", class: "form-control mb-4 article-text-area"%>
-            <%= f.text_field :image, placeholder: "Paste an image url here", class: "form-control mb-4", id: "image-src" %>
           </div>
           <%= f.submit "Publish", class: "btn btn-dark mb-4" %>
       </div>
@@ -27,6 +26,14 @@
             <option value="<%= category.id %>"><%= category.name %></option>
           <% end %>
         </select>
+        <p class="text-small">Choose an image from your hard drive to upload to your article.</p>
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <%= f.file_field :image, class: "custom-file-input" %>
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
