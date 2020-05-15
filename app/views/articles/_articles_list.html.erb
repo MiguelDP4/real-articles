@@ -1,0 +1,20 @@
+<div class="list-group">
+    <% @articles.each do |article| %>
+      <div class="list-group-item">
+        <div class="d-flex flex-row">
+          <% if article.image != "" %>
+          <a href="/articles/<%= article.id %>" class="mr-2">
+            <%= image_tag(article.image, class: "article-miniature-image") %></a>
+          <% end %>
+          <div class="d-flex flex-column flex-grow-1">
+            <div class="d-flex flex-row align-items-center justify-content-between">
+              <%= link_to article.title, article, class: "m-0, article-title-style"%>
+              <%# link_to "See Author Profile", user, class: "btn btn-xs btn-dark"%>
+            </div>
+            <div class="text-muted text-small-title">Author: <%= article.user.name %></div>
+            <div class="text-muted"><%= article.text[0..200] %>...</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

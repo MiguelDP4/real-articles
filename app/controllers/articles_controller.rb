@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :edit]
 
+  def index
+    @pagy, @articles = pagy(Article.all)
+  end
+
   def new
 
   end

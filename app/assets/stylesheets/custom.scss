@@ -52,15 +52,15 @@ a:hover {
   color: $color-yellow !important;
 }
 
-.username-style {
+.article-title-style {
   color: black;
   font-size: 1.3em;
   line-height: 0;
 }
 
-a.username-style:hover {
-  text-decoration: underline $color-yellow;
-  color:black;
+a.article-title-style:hover {
+  text-decoration: underline $color-yellow-light;
+  color: black;
 }
 
 a.btn-xs, input.btn-xs {
@@ -132,12 +132,25 @@ a.btn-xs, input.btn-xs {
   margin: 0;
 }
 
+.text-small-title {
+  font-size: 0.8em;
+  line-height: 3.1em;
+  padding: 0;
+  margin: 0;
+}
+
 .text-light-yellow {
   color: $color-yellow-light;
 }
 
 .article-text-area {
   height: 400px !important;
+}
+
+.article-miniature-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
 }
 
 .custom-select{
