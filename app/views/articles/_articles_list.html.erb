@@ -24,7 +24,9 @@
             <% end %>
             <%# link_to "See Author Profile", user, class: "btn btn-xs btn-dark"%>
           </div>
-          <div class="text-muted text-small mb-1">Author: <%= article.user.name %></div>
+          <div class="text-muted text-small mb-1">Author: 
+            <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+          </div>
           <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
           <div class="text-muted text-break"><%= article.text[0..200] %>...</div>
           <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
@@ -47,7 +49,10 @@
             <% end %>
             <%# link_to "See Author Profile", user, class: "btn btn-xs btn-dark"%>
           </div>
-          <div class="text-muted text-small mb-1">Author: <%= article.user.name %></div>
+          <div class="text-muted text-small mb-1">Author: 
+            <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+          </div>
+          
           <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
           <div class="text-muted text-break"><%= article.text[0..200] %>...</div>
           <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>

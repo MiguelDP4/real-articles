@@ -20,6 +20,9 @@
           <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
         </div>
       <% end %>
+      <div class="text-muted text-small mb-1">Author: 
+        <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+      </div>
       <% if article.text.length > 150%>
         <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
           <%= link_to "#{article.text[0..150]}...", article, class: "m-0, text-muted"%>
@@ -51,6 +54,9 @@
                 <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
               </div>
             <% end %>
+            <div class="text-muted text-small mb-1">Author: 
+              <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+            </div>
             <% if article.text.length > 150%>
               <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
                 <%= link_to "#{article.text[0..150]}...", article, class: "m-0, text-muted"%>

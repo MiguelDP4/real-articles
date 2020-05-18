@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
       @pagy, @articles = pagy(Article.where("lower(title) LIKE ?", "%#{search_params[:search_term]}%"))
     elsif !params[:category_id].nil?
       @pagy, @articles = pagy(Category.find(params[:category_id]).articles)
+    elsif !params[:author_id].nil?
+      @pagy, @articles = pagy(User.find(params[:author_id]).articles)
     else
       @pagy, @articles = pagy(Article.all)
     end

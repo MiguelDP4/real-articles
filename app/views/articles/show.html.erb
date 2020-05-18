@@ -14,7 +14,9 @@
     <% end %>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-8">
-      <div class="text-small">Author: <span class="text-light-yellow"><%= @article.user.name %></span></div>
+      <div class="text-muted text-small mb-1">Author: 
+        <%= link_to @article.user.name, articles_path(params: {author_id: @article.user.id})%>
+      </div>
       <div class="text-break"><%= @article.text %></div>
       <div class="text-small mb-3">Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
       <div class="d-flex flex-row align-items-center">
