@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   patch 'articles/edit/:id',       to: 'articles#update'
   post 'articles/:id',             to: 'votes#create'
   patch 'articles/:id',             to: 'votes#destroy'
+  get 'articles',                  to: 'articles#index'
 end

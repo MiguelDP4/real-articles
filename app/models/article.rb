@@ -10,5 +10,4 @@ class Article < ApplicationRecord
   def add_category(category_id)
     category_articles.new(article_id: self.id, category_id: category_id).save
   end
-
 end

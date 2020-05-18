@@ -1,6 +1,18 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :edit]
 
+  def index
+    if !search_params[:search_term].nil?
+      @pagy, @articles = pagy(Article.where("lower(title) LIKE ?", "%#{search_params[:search_term]}%"))
+    elsif !params[:category_id].nil?
+      @pagy, @articles = pagy(Category.find(params[:category_id]).articles)
+    elsif !params[:author_id].nil?
+      @pagy, @articles = pagy(User.find(params[:author_id]).articles)
+    else
+      @pagy, @articles = pagy(Article.all)
+    end
+  end
+
   def new
 
   end
@@ -53,5 +65,9 @@ class ArticlesController < ApplicationController
       flash[:danger] = "Log in first to be able to create articles."
       redirect_to login_url
     end
+  end
+
+  def search_params
+    params.permit(:search_term)
   end
 end

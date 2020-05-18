@@ -1,0 +1,73 @@
+<div class="d-flex flex-wrap justify-content-center">
+  <% article = most_popular_article %>
+  <div class="card w-100">
+    <% if article.image != "" %>
+      <img src="<%= article.image %>" class="card-img-top top-card-image" alt="Article Image">
+    <% else %>
+      <img src="<%= image_url('mustard-background.png') %>" class="card-img-top h-25" alt="Article Image">
+    <% end %>
+    <div class="card-body">
+      <span class="ml-auto badge badge-dark">Categories:</span>
+      <% article.categories.each do |category| %>
+        <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary"%>
+      <% end %>
+      <% if article.title.length > 30%>
+        <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+          <%= link_to "#{article.title[0..30]}...", article, class: "m-0, article-title-style"%>
+        </div>
+      <% else %>
+        <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+          <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
+        </div>
+      <% end %>
+      <div class="text-muted text-small mb-1">Author: 
+        <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+      </div>
+      <% if article.text.length > 150%>
+        <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+          <%= link_to "#{article.text[0..150]}...", article, class: "m-0, text-muted"%>
+        </div>
+      <% else %>
+        <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+          <%= link_to "#{article.title[0..150]}", article, class: "m-0, text-muted"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% Category.all.sort_by(&:priority).each do |category| %>
+    <% if category.articles.any? %>
+      <% article = category.articles.first %>
+        <div class="card h-100">
+          <% if article.image != "" %>
+            <img src="<%= article.image %>" class="card-img-top" alt="Article Image">
+          <% else %>
+            <img src="<%= image_url('mustard-background.png') %>" class="card-img-top" alt="Article Image">
+          <% end %>
+          <div class="card-body">
+            <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary"%>
+            <% if article.title.length > 30%>
+              <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+                <%= link_to "#{article.title[0..30]}...", article, class: "m-0, article-title-style"%>
+              </div>
+            <% else %>
+              <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+                <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
+              </div>
+            <% end %>
+            <div class="text-muted text-small mb-1">Author: 
+              <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+            </div>
+            <% if article.text.length > 150%>
+              <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+                <%= link_to "#{article.text[0..150]}...", article, class: "m-0, text-muted"%>
+              </div>
+            <% else %>
+              <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
+                <%= link_to "#{article.title[0..150]}", article, class: "m-0, text-muted"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
+</div>
