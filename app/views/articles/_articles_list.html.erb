@@ -1,7 +1,7 @@
 <% @articles.each_with_index do |article, index| %>
   <% if index.even? %>
     <div class="vh-100 w-20">
-      <div class="h-50 article-list-container">
+      <div class="h-50">
         <% if article.image != "" %>
           <a href="/articles/<%= article.id %>" class="mr-2">
           <%= image_tag(article.image, class: "article-list-image") %></a>
@@ -10,7 +10,7 @@
           <%= image_tag(image_url('mustard-background.png'), class: "article-list-image") %></a>
         <% end %>
       </div>
-      <div class="h-50 article-list-container">
+      <div class="h-50 p-1">
         <span class="ml-auto badge badge-dark">Categories:</span>
         <% article.categories.each do |category| %>
           <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary ml-1"%>
@@ -33,7 +33,7 @@
     </div>
   <% else %>
     <div class="vh-100 w-20">
-      <div class="h-50 article-list-container">
+      <div class="h-50 p-1">
         <span class="ml-auto badge badge-dark">Categories:</span>
         <% article.categories.each do |category| %>
           <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary ml-1"%>
@@ -53,7 +53,7 @@
           <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
         </div>
       </div>
-      <div class="h-50 article-list-container">
+      <div class="h-50">
         <% if article.image != "" %>
           <a href="/articles/<%= article.id %>" class="mr-2">
           <%= image_tag(article.image, class: "article-list-image") %></a>
