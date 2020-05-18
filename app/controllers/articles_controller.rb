@@ -4,6 +4,8 @@ class ArticlesController < ApplicationController
   def index
     if !search_params[:search_term].nil?
       @pagy, @articles = pagy(Article.where("lower(title) LIKE ?", "%#{search_params[:search_term]}%"))
+    elsif !params[:category_id].nil?
+      @pagy, @articles = pagy(Category.find(params[:category_id]).articles)
     else
       @pagy, @articles = pagy(Article.all)
     end

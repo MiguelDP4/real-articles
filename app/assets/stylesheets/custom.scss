@@ -55,7 +55,6 @@ a:hover {
 .article-title-style {
   color: black;
   font-size: 1.3em;
-  line-height: 0;
 }
 
 a.article-title-style:hover {
@@ -91,17 +90,17 @@ a.btn-xs, input.btn-xs {
 }
 
 .page-link {
-  color: #565c62;
+  color: $color-yellow-dark;
 }
 
 .page-link:hover {
-  color: black;
+  color: $color-yellow-dark;
   font-weight: bold;
 }
 
 .page-item.active .page-link {
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: $color-yellow;
+  border-color: $color-yellow;
 }
 
 .btn-dark {
@@ -125,16 +124,14 @@ a.btn-xs, input.btn-xs {
   border-color: $color-yellow-dark;
 }
 
+.badge-secondary {
+  color: #fff;
+  background-color: $color-yellow;
+}
+
 .text-small {
   font-size: 0.8em;
   line-height: 1em;
-  padding: 0;
-  margin: 0;
-}
-
-.text-small-title {
-  font-size: 0.8em;
-  line-height: 3.1em;
   padding: 0;
   margin: 0;
 }
@@ -165,4 +162,8 @@ a.btn-xs, input.btn-xs {
 
 .hand-hover:hover {
   cursor: pointer;
+}
+
+.card {
+  width: 25rem;
 }
