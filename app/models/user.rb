@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles, dependent: :destroy
   has_many :votes
+  validates :name, uniqueness: true
 
   def voted?(article)
     !votes.find_by(article_id: article.id).nil?

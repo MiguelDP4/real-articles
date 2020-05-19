@@ -8,6 +8,6 @@ class Article < ApplicationRecord
   has_many :votes
 
   def add_category(category_id)
-    category_articles.new(article_id: self.id, category_id: category_id).save
+    category_articles.new(article_id: id, category_id: category_id).save
   end
 end
