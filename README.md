@@ -1,24 +1,28 @@
-# README
+# Real Articles
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was done with education purposes only, to demonstrate what I have learnt over the last weeks using ruby on rails.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby 2.7.0
+- Ruby on Rails 6.0.3
 
-* System dependencies
+## Authors
 
-* Configuration
+👤 **Miguel Dubois**
 
-* Database creation
+- Github: [@MiguelDP4](https://github.com/MiguelDP4)
+- Twitter: [@Mike_DP4](https://twitter.com/Mike_DP4)
+- LinkedIn [Miguel Dubois](https://www.linkedin.com/in/miguel-angel-dubois)
 
-* Database initialization
+## 🤝 Contributing
 
-* How to run the test suite
+This project is for learning purposes only, I wont accept contributions, though suggestions are welcome.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Show your support
 
-* Deployment instructions
+Give a ⭐️ if you like this project!
 
-* ...
+## Acknowledgments
+
+- I thank microverse for this learning opportunity.
