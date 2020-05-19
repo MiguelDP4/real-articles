@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     # @categoryarticle = @article.category_articles.build(category_params)
     if @article.save
       category_array = category_params[:category].split(',').uniq.map(&:to_i).compact
-      category_array << 1 if category_array.count == 0
+      category_array << 1 if category_array.count.zero?
       category_array.each { |category| @article.add_category(category) }
       flash[:success] = 'Your article was published.'
       redirect_to @article
@@ -59,10 +59,8 @@ class ArticlesController < ApplicationController
   end
 
   def logged_in_user
-    unless user_signed_in?
-      flash[:danger] = 'Log in first to be able to create articles.'
-      redirect_to login_url
-    end
+    flash[:danger] = 'Log in first to be able to create articles.' unless user_signed_in?
+    redirect_to login_url unless user_signed_in?
   end
 
   def search_params

@@ -4,10 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def require_login
-    unless user_signed_in?
-      flash[:danger] = 'You need to log in to do that'
-      redirect_to new_user_session_path
-    end
+    flash[:danger] = 'You need to log in to do that' unless user_signed_in?
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
   protected
