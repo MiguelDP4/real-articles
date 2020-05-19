@@ -2,9 +2,8 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :require_login
 
-  def require_login # Remember, you need to add this to the "create article" page
+  def require_login
     unless user_signed_in?
       flash[:danger] = 'You need to log in to do that'
       redirect_to new_user_session_path
