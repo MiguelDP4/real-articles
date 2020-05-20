@@ -23,7 +23,7 @@
         <p class="text-small mb-1">If you want to select more than one, click on the dropdown again and click another</p>    
         <select onchange="fillCategory()" id="category_select" name="category_select" class="custom-select mb-2">
           <option disabled selected value> -- Categories -- </option>
-          <% Category.all.each do |category| %>
+          <% @categories do |category| %>
             <option value="<%= category.id %>"><%= category.name %></option>
           <% end %>
         </select>
