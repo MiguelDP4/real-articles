@@ -36,7 +36,7 @@
         <% end %>
       </div>
     </div>
-  <% Category.all.sort_by(&:priority).each do |category| %>
+  <% @categories.each do |category| %>
     <% if category.articles.any? %>
       <% article = category.articles.first %>
         <div class="card h-100">
