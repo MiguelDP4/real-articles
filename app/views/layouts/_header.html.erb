@@ -15,7 +15,6 @@
             Account
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%# link_to "#{current_user.username}'s Profile", current_user, class: "dropdown-item" %>
           <%= link_to "Settings", edit_registration_path(current_user), class: "dropdown-item" %>
           <%= link_to "New Article", articles_new_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
