@@ -5,6 +5,7 @@ RSpec.describe CategoryArticle, type: :model do
     let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
     let(:category) { Category.create!(name: 'Miscelaneus', priority: 1) }
     let(:category2) { Category.create!(name: 'World', priority: 1) }
+    
     it 'makes sure an article can be associated to a category' do
       article = Article.create(text: 'Some content.', title: 'Some title', user_id: user.id)
       article.add_category(category.id)

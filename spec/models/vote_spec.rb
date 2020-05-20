@@ -10,4 +10,14 @@ RSpec.describe Vote, type: :model do
       expect(vote).to eq(true)
     end
   end
+
+  context 'association test' do
+    let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
+    let(:article) { user.articles.build(text: "article text", title: "article title", image: "") }
+    it 'makes sure a vote belongs to a user' do
+      vote = Vote.new(user_id: user.id, article_id: article.id)
+      vote.save
+      expect(vote.user).to eq(user)
+    end
+  end
 end
