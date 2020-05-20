@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     if !search_params[:search_term].nil?
-      @pagy, @articles = pagy(Article.where('lower(title) LIKE ?', "%#{search_params[:search_term]}%"))
+      @pagy, @articles = pagy(Article.search_article_by_title(search_params[:search_term]))
     elsif !params[:category_id].nil?
       @pagy, @articles = pagy(Category.find(params[:category_id]).articles)
     elsif !params[:author_id].nil?
@@ -13,11 +13,12 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def new; end
+  def new
+    @categories = Category.all
+  end
 
   def create
     @article = current_user.articles.build(article_params)
-    # @categoryarticle = @article.category_articles.build(category_params)
     if @article.save
       category_array = category_params[:category].split(',').uniq.map(&:to_i).compact
       category_array << 1 if category_array.count.zero?

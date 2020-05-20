@@ -40,6 +40,24 @@ $ rails server
 
 You can check a demo version of the project in [this link](https://real-articles-demo.herokuapp.com/).
 
+### Demo images
+
+#### Home Page
+
+![](app/assets/images/demo/home-page.png)
+
+#### Article Page
+
+![](app/assets/images/demo/article-page.png)
+
+#### Search article by category page
+
+![](app/assets/images/demo/search-article-by-category.png)
+
+#### Create New Article Page
+
+![](app/assets/images/demo/new-article-page.png)
+
 ## 🤝 Contributing
 
 This project is for learning purposes only, I wont accept contributions, though suggestions are welcome.
