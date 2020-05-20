@@ -7,7 +7,7 @@ RSpec.describe 'real', type: :request do
 
   context 'real-articles' do
     let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
-    
+
     it 'ensures home page shows up to user' do
       get root_path
       expect(response.body).to include('Log in')
@@ -27,7 +27,7 @@ RSpec.describe 'real', type: :request do
 
     it 'creates an article' do
       log_in(user)
-      post articles_new_path, params: {title: "Article title", text: "article text", image:"", category: "1,3,"}
+      post articles_new_path, params: { title: 'Article title', text: 'article text', image: '', category: '1,3,' }
       follow_redirect!
       expect(response.body).to include('Your article was published.', 'Article title')
     end

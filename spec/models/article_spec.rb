@@ -26,7 +26,7 @@ RSpec.describe Article, type: :model do
 
   context 'public methods' do
     let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
-    let(:category_technology) { Category.create!(name: "Technology", priority: 1) }
-    let(:article) { user.articles.build(text: "article text", title: "article title", image: "") }
+    let(:category_technology) { Category.create!(name: 'Technology', priority: 1) }
+    let(:article) { user.articles.build(text: 'article text', title: 'article title', image: '') }
   end
 end

@@ -20,9 +20,9 @@ RSpec.describe Category, type: :model do
 
   context 'associations' do
     let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
-    let(:category_technology) { Category.create!(name: "Technology", priority: 1) }
-    let(:article) { user.articles.build(text: "article text", title: "article title", image: "") }
-    
+    let(:category_technology) { Category.create!(name: 'Technology', priority: 1) }
+    let(:article) { user.articles.build(text: 'article text', title: 'article title', image: '') }
+
     it 'ensures categories can be associated with articles' do
       article.add_category(category_technology.id)
       expect(article.categories.first).to eq(category_technology)

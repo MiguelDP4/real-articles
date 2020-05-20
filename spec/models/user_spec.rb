@@ -27,14 +27,14 @@ RSpec.describe User, type: :model do
   context 'public methods' do
     it 'tests if user hasnt voted for article' do
       user = User.create!(name: 'name', email: 'email@email.com', password: 'asdfasdf')
-      article = user.articles.build(text: "text of article", title: "title of article", image: "")
+      article = user.articles.build(text: 'text of article', title: 'title of article', image: '')
       article.save
       expect(user.voted?(article)).to eq(false)
     end
 
     it 'tests if user voted for article' do
       user = User.create!(name: 'name', email: 'email@email.com', password: 'asdfasdf')
-      article = user.articles.build(text: "text of article", title: "title of article", image: "")
+      article = user.articles.build(text: 'text of article', title: 'title of article', image: '')
       article.save
       vote = user.votes.build(article_id: article.id)
       vote.save
@@ -45,14 +45,14 @@ RSpec.describe User, type: :model do
   context 'associations' do
     it 'tests association between user and article' do
       user = User.create!(name: 'name', email: 'email@email.com', password: 'asdfasdf')
-      article = user.articles.build(text: "text of article", title: "title of article", image: "")
+      article = user.articles.build(text: 'text of article', title: 'title of article', image: '')
       article.save
       expect(user.articles.first).to eq(article)
     end
 
     it 'tests association between user and votes' do
       user = User.create!(name: 'name', email: 'email@email.com', password: 'asdfasdf')
-      article = user.articles.build(text: "text of article", title: "title of article", image: "")
+      article = user.articles.build(text: 'text of article', title: 'title of article', image: '')
       article.save
       vote = user.votes.build(article_id: article.id)
       vote.save

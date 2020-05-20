@@ -13,7 +13,7 @@ RSpec.describe Vote, type: :model do
 
   context 'association test' do
     let(:user) { User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf') }
-    let(:article) { user.articles.build(text: "article text", title: "article title", image: "") }
+    let(:article) { user.articles.build(text: 'article text', title: 'article title', image: '') }
     it 'makes sure a vote belongs to a user' do
       vote = Vote.new(user_id: user.id, article_id: article.id)
       vote.save
