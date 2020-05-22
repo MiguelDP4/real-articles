@@ -2,13 +2,8 @@
   <% if index.even? %>
     <div class="vh-100 w-20">
       <div class="h-50">
-        <% if article.image != "" %>
-          <a href="/articles/<%= article.id %>" class="mr-2">
-          <%= image_tag(article.image, class: "article-list-image") %></a>
-        <% else %>
-          <a href="/articles/<%= article.id %>" class="mr-2">
-          <%= image_tag(image_url('mustard-background.png'), class: "article-list-image") %></a>
-        <% end %>
+        <a href="/articles/<%= article.id %>" class="mr-2">
+        <%= image_tag(image_url('mustard-background.png'), class: "article-list-image") %></a>
       </div>
       <div class="h-50 p-1">
         <span class="ml-auto badge badge-dark">Categories:</span>
@@ -58,13 +53,8 @@
         </div>
       </div>
       <div class="h-50">
-        <% if article.image != "" %>
-          <a href="/articles/<%= article.id %>" class="mr-2">
-          <%= image_tag(article.image, class: "article-list-image") %></a>
-        <% else %>
-          <a href="/articles/<%= article.id %>" class="mr-2">
-          <%= image_tag('assets/mustard-background.png', class: "article-list-image") %></a>
-        <% end %>
+        <a href="/articles/<%= article.id %>" class="mr-2">
+        <%= image_tag(article.image, class: "article-list-image") %></a>
       </div>
     </div>
   <% end %>

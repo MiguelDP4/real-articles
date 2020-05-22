@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
+    @article.image = "default/no-image.jpg" if @article.image == ""
     if @article.save
       category_array = category_params[:category].split(',').uniq.map(&:to_i).compact
       category_array << 1 if category_array.count.zero?
