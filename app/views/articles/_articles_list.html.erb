@@ -12,17 +12,13 @@
         <% end %>
         <div class="d-flex flex-column flex-grow-1">
           <div class="d-flex flex-row align-items-center">
-            <% if article.title.length > 30%>
-              <%= link_to "#{article.title[0..30]}...", article, class: "m-0, article-title-style"%>
-            <% else %>
-              <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
-            <% end %>
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
           </div>
           <div class="text-muted text-small mb-1">Author: 
             <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
           </div>
           <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
-          <div class="text-muted text-break"><%= article.text[0..200] %>...</div>
+          <div class="text-muted text-break"><%= text_reductor(article.text,150) %></div>
           <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
         </div>
       </div>
@@ -36,19 +32,13 @@
         <% end %>
         <div class="d-flex flex-column flex-grow-1">
           <div class="d-flex flex-row align-items-center">
-            <% if article.title.length > 30%>
-              <%= link_to "#{article.title[0..30]}...", article, class: "m-0, article-title-style"%>
-            <% else %>
-              <%= link_to "#{article.title[0..30]}", article, class: "m-0, article-title-style"%>
-            <% end %>
-            <%# link_to "See Author Profile", user, class: "btn btn-xs btn-dark"%>
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
           </div>
           <div class="text-muted text-small mb-1">Author: 
             <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
           </div>
-          
           <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
-          <div class="text-muted text-break"><%= article.text[0..200] %>...</div>
+          <div class="text-muted text-break"><%= text_reductor(article.text, 150) %></div>
           <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
         </div>
       </div>
