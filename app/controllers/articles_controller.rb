@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
 
   def logged_in_user
     flash[:danger] = 'Log in first to be able to create articles.' unless user_signed_in?
-    redirect_to login_url unless user_signed_in?
+    redirect_to new_user_session_url unless user_signed_in?
   end
 
   def search_params
