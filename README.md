@@ -19,7 +19,7 @@ $ rails db:create
 ```
 $ rails db:migrate 
 ```
-- To seed the database with the necessary categories on the category table, there's some records already created, so run the seed file by running the command rails db:seed
+- To seed the database with the necessary categories on the category table, there's some records already created, so run the seed file by running the command rails db:seed. If the app is in the development environment, it also seed mock users, articles and votes.
 ```
 $ rails db:seed 
 ```

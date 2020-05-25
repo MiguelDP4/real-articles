@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-1 col-lg-2">
     <% if @article.image != "" %>
-      <%= image_tag(@article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()") %>
+      <%= image_tag @article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()" %>
     <% end %>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-8">
