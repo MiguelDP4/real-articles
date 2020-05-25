@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe CategoryArticle, type: :model do
   context 'creation test' do
     let(:user) { create(:user) }
-    let(:article) {create(:article, user_id: user.id)}
+    let(:article) { create(:article, user_id: user.id) }
     let(:category) { create(:category) }
     let(:category2) { create(:category2) }
 
