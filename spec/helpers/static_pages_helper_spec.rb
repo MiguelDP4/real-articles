@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-RSpec.describe StaticPagesHelper, :type => :helper do
+RSpec.describe StaticPagesHelper, type: :helper do
   before(:each) do
     @user = User.create!(name: 'Mike', email: 'mike@users.com', password: 'asdfasdf')
     @user2 = User.create!(name: 'Mike2', email: 'mike2@users.com', password: 'asdfasdf')
@@ -16,8 +16,8 @@ RSpec.describe StaticPagesHelper, :type => :helper do
     @article4.save
   end
 
-  describe "most popular article" do
-    it "returns the most popular article" do
+  describe 'most popular article' do
+    it 'returns the most popular article' do
       Vote.new(user_id: @user.id, article_id: @article3.id).save
       Vote.new(user_id: @user2.id, article_id: @article3.id).save
       Vote.new(user_id: @user3.id, article_id: @article3.id).save
