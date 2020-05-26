@@ -19,7 +19,7 @@ class VotesController < ApplicationController
   def destroy
     article = Article.find(params[:id])
     if current_user.voted?(article)
-      vote = Vote.find_vote(user_id, article_id)
+      vote = Vote.find_vote(current_user.id, article.id)
       if vote.delete
         flash[:dark] = 'You removed your vote'
       else

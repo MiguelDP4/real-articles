@@ -37,12 +37,14 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @article = Article.find(params[:id])
   end
 
   def update
     @article = Article.find(params[:id])
-    if @article.update(article_params)
+    @article.update(edit_params)
+    if @article.save
       redirect_to @article
     else
       flash[:danger] = 'Something went wrong. Try again later.'
@@ -58,6 +60,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.permit(:title, :text, :image)
+  end
+
+  def edit_params
+    params.require(:article).permit(:title, :text, :image)
   end
 
   def logged_in_user
