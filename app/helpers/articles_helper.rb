@@ -28,8 +28,8 @@ module ArticlesHelper
   end
 
   def edit_article_link(article)
-    if current_user == article.user
-      link_to('Edit my article', "/articles/#{article.id}/edit", class: "btn btn-secondary")
-    end
+    return unless current_user == article.user
+
+    link_to('Edit my article', "/articles/#{article.id}/edit", class: 'btn btn-secondary')
   end
 end
