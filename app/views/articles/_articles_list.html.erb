@@ -12,7 +12,7 @@
         <% end %>
         <div class="d-flex flex-column flex-grow-1">
           <div class="d-flex flex-row align-items-center">
-            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style-dark"%>
           </div>
           <div class="text-muted text-small mb-1">Author: 
             <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
@@ -32,7 +32,7 @@
         <% end %>
         <div class="d-flex flex-column flex-grow-1">
           <div class="d-flex flex-row align-items-center">
-            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style-dark"%>
           </div>
           <div class="text-muted text-small mb-1">Author: 
             <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
