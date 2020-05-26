@@ -1,7 +1,7 @@
 module ApplicationHelper
   include Pagy::Frontend
   def show_flashes(flash)
-    return_html = ""
+    return_html = ''
     flash.each do |message_type, message|
       return_html += tag.div(message, class: "alert alert-#{message_type}")
     end
@@ -9,11 +9,12 @@ module ApplicationHelper
   end
 
   def header_user_menu
-    return_html = ""
+    return_html = ''
     if user_signed_in?
-      return_html = 
-      "<li class='nav-item dropdown'>
-      <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+      return_html =
+        "<li class='nav-item dropdown'>
+      <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown'
+      role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
         Account
       </a>
       <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>"
@@ -21,13 +22,13 @@ module ApplicationHelper
       return_html += link_to('New Article', articles_new_path, class: 'dropdown-item')
       return_html += "<div class='dropdown-divider'></div>"
       return_html += link_to('Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item')
-      return_html += "</div>"
+      return_html += '</div>'
     else
       return_html += "<li class='nav-item'>"
-      return_html += link_to("Log in", new_session_path(:user), class: "nav-link")
-      return_html += "</li>"
+      return_html += link_to('Log in', new_session_path(:user), class: 'nav-link')
+      return_html += '</li>'
       return_html += "<li class='nav-item'>"
-      return_html += link_to("Register", new_registration_path(:user), class: "nav-link")
+      return_html += link_to('Register', new_registration_path(:user), class: 'nav-link')
       return_html += '</li>'
     end
     return_html.html_safe
