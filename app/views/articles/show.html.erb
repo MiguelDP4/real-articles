@@ -22,6 +22,8 @@
       </div>
       <span class="text-small" >Votes: <%= @article.votes.count%></span>
       <%= vote_button(@article) %>
+      <br>
+      <%= edit_article_link(@article) %>
     </div>
   </div>
 </div>

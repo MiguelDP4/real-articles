@@ -20,6 +20,7 @@ module ApplicationHelper
       <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>"
       return_html += link_to('Settings', edit_registration_path(current_user), class: 'dropdown-item')
       return_html += link_to('New Article', articles_new_path, class: 'dropdown-item')
+      return_html += link_to('My Articles', articles_path(params: {author_id: current_user.id}), class: 'dropdown-item')
       return_html += "<div class='dropdown-divider'></div>"
       return_html += link_to('Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item')
       return_html += '</div>'

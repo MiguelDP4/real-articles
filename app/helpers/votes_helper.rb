@@ -3,9 +3,9 @@ module VotesHelper
     return unless user_signed_in?
 
     if !current_user.voted?(article)
-      link_to('', @article, method: :post, class: 'btn btn-outline-secondary fa fa-caret-square-o-up ml-2')
+      link_to('', "/articles/#{article.id}/vote", method: :post, class: 'btn btn-outline-secondary fa fa-caret-square-o-up ml-2 mb-2')
     else
-      link_to('', @article, method: :patch, class: 'btn btn-secondary fa fa-caret-square-o-down ml-2')
+      link_to('', "/articles/#{article.id}/unvote", method: :patch, class: 'btn btn-secondary fa fa-caret-square-o-down ml-2 mb-2')
     end
   end
 end
