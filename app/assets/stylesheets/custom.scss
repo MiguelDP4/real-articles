@@ -1,8 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-$color-yellow-light: #ad9800;
-$color-yellow: #685b00;
-$color-yellow-dark: #352f00;
+$color-light: #cccccc;
+$color-main: #FE6001;
+$color-dark: #4E443F;
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -15,28 +15,29 @@ $color-yellow-dark: #352f00;
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $color-yellow; 
+  background: $color-main; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $color-yellow-dark; 
+  background: $color-dark; 
 }
 
 body {
   padding-top: 57.72px;
+  background-color: #e9e9e9;
 }
 
 .bg-dark {
-  background-color: $color-yellow-dark !important;
+  background-color: $color-dark !important;
 }
 
 a {
- color: $color-yellow-dark;
+ color: $color-dark;
 }
 
 a:hover {
-  color: $color-yellow;
+  color: $color-main;
 }
 
 .form-control:focus {
@@ -45,23 +46,33 @@ a:hover {
 }
 
 .text-dark {
-  color: $color-yellow-dark !important;
+  color: $color-dark !important;
 }
 
 .text-dark:hover {
-  color: $color-yellow !important;
+  color: $color-main !important;
 }
 
 
 
 .article-title-style {
-  color: $color-yellow-light;
+  color: $color-light;
   font-size: 1.3em;
 }
 
 a.article-title-style:hover {
-  text-decoration: underline $color-yellow-light;
-  color: $color-yellow;
+  text-decoration: underline $color-light;
+  color: $color-main;
+}
+
+.article-title-style-dark {
+  color: $color-dark;
+  font-size: 1.3em;
+}
+
+a.article-title-style-dark:hover {
+  text-decoration: underline $color-dark;
+  color: $color-main;
 }
 
 a.btn-xs, input.btn-xs {
@@ -80,55 +91,55 @@ a.btn-xs, input.btn-xs {
 }
 
 .alert-notice {
-  color: $color-yellow-light;
-  background-color: $color-yellow;
-  border-color: $color-yellow-dark;
+  color: $color-light;
+  background-color: $color-main;
+  border-color: $color-dark;
 }
 
 .alert-success {
-  color: $color-yellow;
-  background-color: $color-yellow-light;
-  border-color: $color-yellow;
+  color: $color-main;
+  background-color: $color-light;
+  border-color: $color-main;
 }
 
 .page-link {
-  color: $color-yellow-dark;
+  color: $color-dark;
 }
 
 .page-link:hover {
-  color: $color-yellow-dark;
+  color: $color-dark;
   font-weight: bold;
 }
 
 .page-item.active .page-link {
-  background-color: $color-yellow;
-  border-color: $color-yellow;
+  background-color: $color-main;
+  border-color: $color-main;
 }
 
 .btn-dark {
   color: #fff;
-  background-color: $color-yellow-dark;
-  border-color: $color-yellow-dark;
+  background-color: $color-dark;
+  border-color: $color-dark;
 }
 
 .btn-dark:hover {
-  background-color: $color-yellow;
-  border-color: $color-yellow;
+  background-color: $color-main;
+  border-color: $color-main;
 }
 
 .btn-secondary {
-  background-color: $color-yellow;
-  border-color: $color-yellow;
+  background-color: $color-main;
+  border-color: $color-main;
 }
 
 .btn-secondary:hover {
-  background-color: $color-yellow-dark;
-  border-color: $color-yellow-dark;
+  background-color: $color-dark;
+  border-color: $color-dark;
 }
 
 .badge-secondary {
   color: #fff;
-  background-color: $color-yellow;
+  background-color: $color-main;
 }
 
 .text-small {
@@ -146,7 +157,7 @@ a.btn-xs, input.btn-xs {
 }
 
 .text-light-yellow {
-  color: $color-yellow-light;
+  color: $color-light;
 }
 
 .text-white {
@@ -165,7 +176,7 @@ a.btn-xs, input.btn-xs {
 
 .custom-select{
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 4 5'%3e%3cpath d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
-  background-color: $color-yellow;
+  background-color: $color-main;
   color: white;
 }
 
@@ -243,4 +254,16 @@ a.btn-xs, input.btn-xs {
 
 .page-content {
   min-height: calc(100vh - 115.44px);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: $color-main;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: $color-light;
+}
+
+.navbar-light.bg-light {
+  border-bottom: solid 3px $color-main;
 }
