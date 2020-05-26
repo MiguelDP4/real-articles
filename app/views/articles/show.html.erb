@@ -9,9 +9,7 @@
 <div class="container mb-2">
   <div class="row">
     <div class="col-sm-12 col-md-1 col-lg-2">
-    <% if @article.image != "" %>
-      <%= image_tag @article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()" %>
-    <% end %>
+    <%= image_tag @article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()" %>
     </div>
     <div class="col-sm-12 col-md-10 col-lg-8">
       <div class="text-muted text-small mb-1">Author: 
@@ -23,13 +21,7 @@
         <span class="text-small mb-1">Liked the article? Vote up!</span>
       </div>
       <span class="text-small" >Votes: <%= @article.votes.count%></span>
-        <% if user_signed_in? %>
-          <% if !current_user.voted?(@article) %>
-            <%= link_to '', @article, method: :post, class: "btn btn-outline-secondary fa fa-caret-square-o-up ml-2" %>
-          <% else %>
-            <%= link_to '', @article, method: :patch, class: "btn btn-secondary fa fa-caret-square-o-down ml-2" %>
-          <% end %>
-        <% end %>
+      <%= vote_button(@article) %>
     </div>
   </div>
 </div>
