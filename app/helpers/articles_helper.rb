@@ -17,4 +17,12 @@ module ArticlesHelper
       Article.first
     end
   end
+
+  def show_categories(article)
+    return_html = ""
+    article.categories.each do |category|
+      return_html += link_to(category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary")
+    end
+    return_html.html_safe
+  end
 end

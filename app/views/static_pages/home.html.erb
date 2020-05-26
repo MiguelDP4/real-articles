@@ -1,14 +1,11 @@
 <% article = most_popular_article %>
 <% if !article.nil? %>
 <div class="d-flex flex-wrap justify-content-center">
-  
-    <div class="card w-100">
-      <%= image_tag article.image, class: "card-img-top top-card-image", alt: "Article Image" %>
-      <div class="card-body">
-        <span class="ml-auto badge badge-dark">Categories:</span>
-        <% article.categories.each do |category| %>
-          <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary"%>
-        <% end %>
+  <div class="card w-100">
+    <%= image_tag article.image, class: "card-img-top top-card-image", alt: "Article Image" %>
+    <div class="card-body">
+      <span class="ml-auto badge badge-dark">Categories:</span>
+      <%= show_categories(article) %>
         <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
           <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
         </div>
@@ -17,9 +14,10 @@
         </div>
         <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
             <%= link_to text_reductor(article.text, 150), article, class: "m-0, text-muted"%>
-          </div>
-      </div>
+        </div>
     </div>
+  </div>
+<% end %>
   <% @categories.each do |category| %>
     <% if category.articles.any? %>
       <% article = category.articles.first %>
@@ -41,4 +39,3 @@
     <% end %>
   <% end %>
 </div>
-<% end %>
