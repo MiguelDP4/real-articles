@@ -1,19 +1,19 @@
 <% article = most_popular_article %>
 <% if !article.nil? %>
 <div class="d-flex flex-wrap justify-content-center">
-  <div class="card w-100">
-    <%= image_tag article.image, class: "card-img-top top-card-image", alt: "Article Image" %>
-    <div class="card-body">
-      <span class="ml-auto badge badge-dark">Categories:</span>
+  <div class="card w-75 vh-75">
+    <%= image_tag article.image, class: "card-img-top article-list-image", alt: "Article Image" %>
+    <div class="card-body transparent-background">
+      <span class="ml-auto badge badge-light">Categories:</span>
       <%= show_categories(article) %>
         <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
-          <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
+          <%= link_to text_reductor(article.title, 50), article, class: "m-0 article-title-style"%>
         </div>
-        <div class="text-muted text-small mb-1">Author: 
-          <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+        <div class="text-white text-small mb-1">Author: 
+          <%= link_to article.user.name, articles_path(params: {author_id: article.user.id}), class: "text-light-yellow"%>
         </div>
         <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
-            <%= link_to text_reductor(article.text, 150), article, class: "m-0, text-muted"%>
+            <%= link_to text_reductor(article.text, 400), article, class: "m-0 text-white"%>
         </div>
     </div>
   </div>
@@ -21,18 +21,18 @@
   <% @categories.each do |category| %>
     <% if category.articles.any? %>
       <% article = category.articles.first %>
-        <div class="card h-100">
-          <%= image_tag article.image, class: "card-img-top", alt:"Article Image" %>
-          <div class="card-body">
+        <div class="card vh-75">
+          <%= image_tag article.image, class: "card-img-top article-list-image", alt:"Article Image" %>
+          <div class="card-body transparent-background">
             <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary"%>
             <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
-              <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style"%>
+              <%= link_to text_reductor(article.title, 30), article, class: "m-0 article-title-style"%>
             </div>
-            <div class="text-muted text-small mb-1">Author: 
-              <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+            <div class="text-white text-small mb-1">Author: 
+              <%= link_to article.user.name, articles_path(params: {author_id: article.user.id}), class: "text-light-yellow" %>
             </div>
             <div data-toggle="tooltip" data-placement="top" title="<%= article.title %>">
-              <%= link_to text_reductor(article.text, 150), article, class: "m-0, text-muted"%>
+              <%= link_to text_reductor(article.text, 150), article, class: "m-0 text-white"%>
             </div>
           </div>
         </div>
