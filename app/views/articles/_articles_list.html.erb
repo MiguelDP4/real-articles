@@ -1,0 +1,51 @@
+<% @articles.each_with_index do |article, index| %>
+  <% if index.even? %>
+    <div class="vh-100 w-20">
+      <div class="h-50">
+        <a href="/articles/<%= article.id %>" class="mr-2">
+        <%= image_tag(article.image, class: "article-list-image") %></a>
+      </div>
+      <div class="h-50 p-1">
+        <span class="ml-auto badge badge-dark">Categories:</span>
+        <% article.categories.each do |category| %>
+          <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary ml-1"%>
+        <% end %>
+        <div class="d-flex flex-column flex-grow-1">
+          <div class="d-flex flex-row align-items-center">
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style-dark"%>
+          </div>
+          <div class="text-muted text-small mb-1">Author: 
+            <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+          </div>
+          <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
+          <div class="text-muted text-break"><%= text_reductor(article.text,150) %></div>
+          <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="vh-100 w-20">
+      <div class="h-50 p-1">
+        <span class="ml-auto badge badge-dark">Categories:</span>
+        <% article.categories.each do |category| %>
+          <%= link_to category.name, articles_path(params: {category: category.name, category_id: category.id}), class: "badge badge-secondary ml-1"%>
+        <% end %>
+        <div class="d-flex flex-column flex-grow-1">
+          <div class="d-flex flex-row align-items-center">
+            <%= link_to text_reductor(article.title, 30), article, class: "m-0, article-title-style-dark"%>
+          </div>
+          <div class="text-muted text-small mb-1">Author: 
+            <%= link_to article.user.name, articles_path(params: {author_id: article.user.id})%>
+          </div>
+          <div class="text-muted text-small">Published: <%= time_ago_in_words(article.created_at) %> ago.</div>
+          <div class="text-muted text-break"><%= text_reductor(article.text, 150) %></div>
+          <div class="text-small text-muted mt-auto">Votes: <%= article.votes.count %></div>
+        </div>
+      </div>
+      <div class="h-50">
+        <a href="/articles/<%= article.id %>" class="mr-2">
+        <%= image_tag(article.image, class: "article-list-image") %></a>
+      </div>
+    </div>
+  <% end %>
+<% end %>

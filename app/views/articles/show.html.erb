@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-1 col-lg-2"></div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <h2><%= @article.title %></h2>
+    </div>
+  </div>
+</div>
+<div class="container mb-2">
+  <div class="row">
+    <div class="col-sm-12 col-md-1 col-lg-2">
+    <%= image_tag @article.image, class: "img-fluid hand-hover", id: "articleImage", onclick: "enlarge()" %>
+    </div>
+    <div class="col-sm-12 col-md-10 col-lg-8">
+      <div class="text-muted text-small mb-1">Author: 
+        <%= link_to @article.user.name, articles_path(params: {author_id: @article.user.id})%>
+      </div>
+      <div class="text-break"><%= @article.text %></div>
+      <div class="text-small mb-3">Published <%= time_ago_in_words(@article.created_at) %> ago.</div>
+      <div class="d-flex flex-row align-items-center">
+        <span class="text-small mb-1">Liked the article? Vote up!</span>
+      </div>
+      <span class="text-small" >Votes: <%= @article.votes.count%></span>
+      <%= vote_button(@article) %>
+      <br>
+      <%= edit_article_link(@article) %>
+    </div>
+  </div>
+</div>
+
+<script>
+  var image = document.getElementById("articleImage");
+  var state = "small";
+  function enlarge(){
+    if(state == "small"){
+      image.style = "position: fixed; width: auto; height: 80%; z-index: 1000; transform:translateX(-50%); left: 50%; top: 10%;";
+      state = "big"
+    }	
+    else{
+      image.style = "width: 100%; position: relative;";
+      state = "small"
+    }
+  }
+</script>

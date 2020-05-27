@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand navbar-expand-sm navbar-light bg-light fixed-top">
+  <div class="d-flex flex-row w-100">
+    <a class="navbar-brand" href="<%= root_path %>">
+      <%= image_tag("REAL.svg", height: "30px", width: "auto") %>
+    </a>
+    <%= render 'articles/article_search' %>
+    <div class="ml-auto" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Articles", articles_path, class:"nav-link" %>
+        </li>
+        <%= header_user_menu %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <h2>Article Composer</h2>
+    </div>
+  </div>
+</div>
+<%= form_with( model: @article, local: true, class: "article-form" ) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-8">
+          <div class="form-group">
+            <%= f.text_field :title, placeholder: "Type your article title here...", class: "form-control mb-4" %>
+            <%= f.text_area :text, placeholder: "Compose your article here...", class: "form-control mb-4 article-text-area"%>
+            <%= f.text_field :image, placeholder: "Paste an image url here", class: "form-control mb-4", id: "image-src" %>
+          </div>
+          <%= f.submit "Publish", class: "btn btn-dark mb-4" %>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4">
+        <%= f.text_field :category_display, placeholder: "Categories", class: "form-control mb-2", readonly: true, id: "category_text" %>
+        <%= f.text_field :category, placeholder: "Categories", class: "d-none", readonly: true, id: "category_value"%>
+        <p class="text-small">Select a category for your article.</p>
+        <p class="text-small mb-1">If you want to select more than one, click on the dropdown again and click another</p>    
+        <select onchange="fillCategory()" id="category_select" name="category_select" class="custom-select mb-2">
+          <option disabled selected value> -- Categories -- </option>
+          <% @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  var categoryDropdown = document.getElementById("category_select");
+  var category_text = document.getElementById("category_text");
+  var category_value = document.getElementById("category_value");
+  function fillCategory(){
+    var lastSelectedText = categoryDropdown.options[categoryDropdown.selectedIndex].textContent;
+    var lastSelectedValue = categoryDropdown.options[categoryDropdown.selectedIndex].value;
+    category_text.value += lastSelectedText + ", ";
+    category_value.value += lastSelectedValue + ",";
+  }
+</script>
