@@ -1,6 +1,6 @@
 # Real Articles
 
-This project was done with education purposes only, to demonstrate what I have learnt over the last weeks using ruby on rails.
+Real articles is a web application in which users can register and write their own articles. The articles can be voted up if the user has an account and the most voted articles ar showcased in each or their categories. Non registered users are unable to create articles or vote for them, but they can still read other people's articles.
 
 ## Built With
 
